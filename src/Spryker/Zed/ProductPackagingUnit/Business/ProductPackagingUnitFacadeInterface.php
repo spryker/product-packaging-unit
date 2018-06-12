@@ -23,13 +23,13 @@ interface ProductPackagingUnitFacadeInterface
 
     /**
      * Specification:
-     * - Retrieve infrastructural packaging unit type list.
+     * - Retrieve infrastructural packaging unit type list as an array of strings.
      *
      * @api
      *
-     * @return array
+     * @return string[]
      */
-    public function getInfrastructuralPackagingUnitTypes(): array;
+    public function getInfrastructuralPackagingUnitTypeKeys(): array;
 
     /**
      * Specification:

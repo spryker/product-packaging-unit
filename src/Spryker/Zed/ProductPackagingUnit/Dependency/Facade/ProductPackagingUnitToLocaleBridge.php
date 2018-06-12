@@ -29,8 +29,7 @@ class ProductPackagingUnitToLocaleBridge implements ProductPackagingUnitToLocale
      */
     public function getLocaleCollection(): array
     {
-        return $this
-            ->localeFacade
+        return $this->localeFacade
             ->getLocaleCollection();
     }
 
@@ -41,8 +40,7 @@ class ProductPackagingUnitToLocaleBridge implements ProductPackagingUnitToLocale
      */
     public function getLocaleByCode(string $localeCode): LocaleTransfer
     {
-        return $this
-            ->localeFacade
+        return $this->localeFacade
             ->getLocaleByCode($localeCode);
     }
 }
