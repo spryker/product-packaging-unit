@@ -12,6 +12,13 @@ use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
 interface ProductPackagingUnitToSalesQueryContainerInterface
 {
     /**
+     * @param int $idSalesOrder
+     *
+     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
+     */
+    public function querySalesOrderItemsByIdSalesOrder(int $idSalesOrder): SpySalesOrderItemQuery;
+
+    /**
      * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
      */
     public function querySalesOrderItem(): SpySalesOrderItemQuery;
