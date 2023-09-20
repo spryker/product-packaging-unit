@@ -8,16 +8,49 @@
 namespace SprykerTest\Zed\ProductPackagingUnit\Business;
 
 use Codeception\Test\Unit;
+use Generated\Shared\DataBuilder\ProductPackagingUnitTypeBuilder;
 use Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory;
 use Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade;
 use Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitConfig;
+use SprykerTest\Zed\ProductPackagingUnit\ProductPackagingUnitBusinessTester;
 
-abstract class ProductPackagingUnitMocks extends Unit
+/**
+ * Auto-generated group annotations
+ *
+ * @group SprykerTest
+ * @group Zed
+ * @group ProductPackagingUnit
+ * @group Business
+ * @group InstallProductPackagingUnitTypesTest
+ * Add your own group annotations below this line
+ */
+class InstallProductPackagingUnitTypesTest extends Unit
 {
     /**
-     * @var \PHPUnit\Framework\MockObject\MockObject
+     * @var \SprykerTest\Zed\ProductPackagingUnit\ProductPackagingUnitBusinessTester
      */
-    protected $config;
+    protected ProductPackagingUnitBusinessTester $tester;
+
+    /**
+     * @return void
+     */
+    public function testInstallProductPackagingUnitTypesShouldPersistInfrastructuralPackagingUnitTypes(): void
+    {
+        // Arrange
+        $productPackagingUnitTypeTransfer = (new ProductPackagingUnitTypeBuilder())->build();
+        $config = $this->createProductPackagingUnitConfigMock();
+        $config->method('getInfrastructuralPackagingUnitTypes')
+            ->willReturn([$productPackagingUnitTypeTransfer]);
+        $factory = $this->createProductPackagingUnitBusinessFactoryMock($config);
+        $facade = $this->createProductPackagingUnitFacadeMock($factory);
+
+        // Act
+        $facade->installProductPackagingUnitTypes();
+
+        // Assert
+        $productPackagingUnitTypeTransfer = $this->tester->getFacade()->findProductPackagingUnitTypeByName($productPackagingUnitTypeTransfer);
+        $this->assertNotNull($productPackagingUnitTypeTransfer->getIdProductPackagingUnitType());
+    }
 
     /**
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitConfig
