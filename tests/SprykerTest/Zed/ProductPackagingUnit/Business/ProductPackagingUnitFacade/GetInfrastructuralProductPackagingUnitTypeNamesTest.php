@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Zed\ProductPackagingUnit\Business;
+namespace SprykerTest\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade;
 
 use Codeception\Test\Unit;
 use SprykerTest\Zed\ProductPackagingUnit\ProductPackagingUnitBusinessTester;
@@ -17,6 +17,7 @@ use SprykerTest\Zed\ProductPackagingUnit\ProductPackagingUnitBusinessTester;
  * @group Zed
  * @group ProductPackagingUnit
  * @group Business
+ * @group ProductPackagingUnitFacade
  * @group GetInfrastructuralProductPackagingUnitTypeNamesTest
  * Add your own group annotations below this line
  */
