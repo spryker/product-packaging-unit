@@ -187,7 +187,7 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
+     * @param array<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
      *
      * @return array<string, \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer> .
      */
@@ -328,7 +328,7 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
     }
 
     /**
-     * @param list<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
+     * @param array<\Generated\Shared\Transfer\ItemTransfer> $itemTransfers
      *
      * @return array<string, \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer>
      */
