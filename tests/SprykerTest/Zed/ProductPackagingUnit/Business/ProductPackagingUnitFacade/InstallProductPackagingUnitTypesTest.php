@@ -42,8 +42,8 @@ class InstallProductPackagingUnitTypesTest extends Unit
         $config = $this->createProductPackagingUnitConfigMock();
         $config->method('getInfrastructuralPackagingUnitTypes')
             ->willReturn([$productPackagingUnitTypeTransfer]);
-        $factory = $this->createProductPackagingUnitBusinessFactoryMock($config);
-        $facade = $this->createProductPackagingUnitFacadeMock($factory);
+        $factory = $this->createProductPackagingUnitBusinessFactory($config);
+        $facade = $this->createProductPackagingUnitFacade($factory);
 
         // Act
         $facade->installProductPackagingUnitTypes();
@@ -65,38 +65,34 @@ class InstallProductPackagingUnitTypesTest extends Unit
     /**
      * @param \Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitConfig|\PHPUnit\Framework\MockObject\MockObject|null $config
      *
-     * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory
+     * @return \Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory
      */
-    protected function createProductPackagingUnitBusinessFactoryMock(?ProductPackagingUnitConfig $config = null): ProductPackagingUnitBusinessFactory
+    protected function createProductPackagingUnitBusinessFactory(?ProductPackagingUnitConfig $config = null): ProductPackagingUnitBusinessFactory
     {
-        /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory $mockObject */
-        $mockObject = $this->getMockBuilder(ProductPackagingUnitBusinessFactory::class)
-            ->enableProxyingToOriginalMethods()
-            ->getMock();
+        /** @var \Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory $factory */
+        $factory = $this->tester->getFactory();
 
         if ($config !== null) {
-            $mockObject->setConfig($config);
+            $factory->setConfig($config);
         }
 
-        return $mockObject;
+        return $factory;
     }
 
     /**
      * @param \Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitBusinessFactory|\PHPUnit\Framework\MockObject\MockObject|null $factory
      *
-     * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade
+     * @return \Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade
      */
-    protected function createProductPackagingUnitFacadeMock(?ProductPackagingUnitBusinessFactory $factory = null): ProductPackagingUnitFacade
+    protected function createProductPackagingUnitFacade(?ProductPackagingUnitBusinessFactory $factory = null): ProductPackagingUnitFacade
     {
-        /** @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade $mockObject */
-        $mockObject = $this->getMockBuilder(ProductPackagingUnitFacade::class)
-            ->enableProxyingToOriginalMethods()
-            ->getMock();
+        /** @var \Spryker\Zed\ProductPackagingUnit\Business\ProductPackagingUnitFacade $facade */
+        $facade = $this->tester->getFacade();
 
         if ($factory !== null) {
-            $mockObject->setFactory($factory);
+            $facade->setFactory($factory);
         }
 
-        return $mockObject;
+        return $facade;
     }
 }
