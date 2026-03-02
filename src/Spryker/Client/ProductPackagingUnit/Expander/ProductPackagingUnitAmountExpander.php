@@ -84,11 +84,6 @@ class ProductPackagingUnitAmountExpander implements ProductPackagingUnitAmountEx
         }
     }
 
-    /**
-     * @param int $idProductMeasurementSalesUnit
-     *
-     * @return \Generated\Shared\Transfer\ProductMeasurementSalesUnitTransfer
-     */
     protected function createSalesUnitTransfer(int $idProductMeasurementSalesUnit): ProductMeasurementSalesUnitTransfer
     {
         return (new ProductMeasurementSalesUnitTransfer())

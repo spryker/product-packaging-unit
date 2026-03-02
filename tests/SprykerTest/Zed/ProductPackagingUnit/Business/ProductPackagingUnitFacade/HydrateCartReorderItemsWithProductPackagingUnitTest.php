@@ -40,9 +40,6 @@ class HydrateCartReorderItemsWithProductPackagingUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testShouldAddReorderItemsWithAmountSalesUnitAndAmountWhenItemWasNotAddedToReorderItems(): void
     {
         // Arrange
@@ -97,9 +94,6 @@ class HydrateCartReorderItemsWithProductPackagingUnitTest extends Unit
         $this->assertSame($orderItemTransfers[1]->getQuantityOrFail(), $reorderItemTransfer->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldAddAmountSalesUnitAndAmountToReorderItemWhenItemWasPreviouslyAddedToReorderItems(): void
     {
         // Arrange
@@ -156,9 +150,6 @@ class HydrateCartReorderItemsWithProductPackagingUnitTest extends Unit
         $this->assertSame(static::TEST_AMOUNT, $reorderItemTransfer->getAmount()->toInt());
     }
 
-    /**
-     * @return void
-     */
     public function testShouldDoNothingWhenNoItemsWithAmountSalesUnitProvided(): void
     {
         // Arrange

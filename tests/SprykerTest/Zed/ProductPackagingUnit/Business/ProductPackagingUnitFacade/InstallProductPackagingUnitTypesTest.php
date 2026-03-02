@@ -32,9 +32,6 @@ class InstallProductPackagingUnitTypesTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testInstallProductPackagingUnitTypesShouldPersistInfrastructuralPackagingUnitTypes(): void
     {
         // Arrange

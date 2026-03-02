@@ -30,11 +30,6 @@ class OrderItemExpander implements OrderItemExpanderInterface
      */
     protected $productMeasurementUnitFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository,
         ProductPackagingUnitToProductFacadeInterface $productFacade,
@@ -45,12 +40,6 @@ class OrderItemExpander implements OrderItemExpanderInterface
         $this->productMeasurementUnitFacade = $productMeasurementUnitFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer $salesOrderItemEntity
-     *
-     * @return \Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer
-     */
     public function expandSalesOrderItemWithAmountSalesUnit(
         ItemTransfer $itemTransfer,
         SpySalesOrderItemEntityTransfer $salesOrderItemEntity
@@ -82,12 +71,6 @@ class OrderItemExpander implements OrderItemExpanderInterface
         return $salesOrderItemEntity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer $salesOrderItemEntity
-     *
-     * @return \Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer
-     */
     public function expandSalesOrderItemWithAmountAndAmountSku(
         ItemTransfer $itemTransfer,
         SpySalesOrderItemEntityTransfer $salesOrderItemEntity

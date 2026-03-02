@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 interface ProductPackagingUnitGroupKeyGeneratorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     public function getItemWithGroupKey(ItemTransfer $itemTransfer): string;
 }

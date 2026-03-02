@@ -36,11 +36,6 @@ class ProductPackagingUnitToOmsFacadeBridge implements ProductPackagingUnitToOms
         $this->omsFacade->updateReservationQuantity($sku);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return void
-     */
     public function updateReservation(ReservationRequestTransfer $reservationRequestTransfer): void
     {
         $this->omsFacade->updateReservation($reservationRequestTransfer);

@@ -25,10 +25,6 @@ class CartReorderItemHydrator implements CartReorderItemHydratorInterface
      */
     protected ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Extractor\ProductPackagingUnitItemExtractorInterface $productPackagingUnitItemExtractor
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade
-     */
     public function __construct(
         ProductPackagingUnitItemExtractorInterface $productPackagingUnitItemExtractor,
         ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade
@@ -37,11 +33,6 @@ class CartReorderItemHydrator implements CartReorderItemHydratorInterface
         $this->productMeasurementUnitFacade = $productMeasurementUnitFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderTransfer $cartReorderTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartReorderTransfer
-     */
     public function hydrate(CartReorderTransfer $cartReorderTransfer): CartReorderTransfer
     {
         $itemsWithAmountSalesUnit = $this->productPackagingUnitItemExtractor->extractItemsWithAmountSalesUnit(
@@ -67,13 +58,6 @@ class CartReorderItemHydrator implements CartReorderItemHydratorInterface
         return $cartReorderTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartReorderTransfer $cartReorderTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param int $index
-     *
-     * @return void
-     */
     protected function addReorderItem(CartReorderTransfer $cartReorderTransfer, ItemTransfer $itemTransfer, int $index): void
     {
         $reorderItemTransfer = (new ItemTransfer())
@@ -86,12 +70,6 @@ class CartReorderItemHydrator implements CartReorderItemHydratorInterface
         $cartReorderTransfer->getReorderItems()->offsetSet($index, $reorderItemTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $reorderItemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function addAmountSalesUnitToReorderItem(ItemTransfer $itemTransfer, ItemTransfer $reorderItemTransfer): ItemTransfer
     {
         $productMeasurementSalesUnitTransfers = $this->productMeasurementUnitFacade->getSalesUnitsByIdProduct(

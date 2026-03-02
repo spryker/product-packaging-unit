@@ -19,20 +19,11 @@ abstract class ProductPackagingUnitAvailabilityPreCheck
      */
     protected $availabilityFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade
-     */
     public function __construct(ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade)
     {
         $this->availabilityFacade = $availabilityFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return bool
-     */
     protected function isPackagingUnitSellable(ItemTransfer $itemTransfer, StoreTransfer $storeTransfer): bool
     {
         if ($this->isSelfLeadPackagingUnitItem($itemTransfer)) {
@@ -46,22 +37,11 @@ abstract class ProductPackagingUnitAvailabilityPreCheck
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isSelfLeadPackagingUnitItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getAmountLeadProduct()->getSku() === $itemTransfer->getSku();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return \Spryker\DecimalObject\Decimal
-     */
     protected function findProductConcreteAvailability(ItemTransfer $itemTransfer, StoreTransfer $storeTransfer): Decimal
     {
         $productConcreteAvailabilityTransfer = $this->availabilityFacade
@@ -138,34 +118,16 @@ abstract class ProductPackagingUnitAvailabilityPreCheck
         return $isQuantityLeadProduct && !$isAmountLeadProduct;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductPackagingUnitItemTransfer(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getAmountLeadProduct() !== null;
     }
 
-    /**
-     * @param string $leadProductSku
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductPackagingUnitItemTransferOfLeadProduct(string $leadProductSku, ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getAmountLeadProduct()->getSku() === $leadProductSku;
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $quantity
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return bool
-     */
     protected function isProductSellableForStore(string $sku, Decimal $quantity, StoreTransfer $storeTransfer): bool
     {
         return $this->availabilityFacade->isProductSellableForStore($sku, $quantity, $storeTransfer);

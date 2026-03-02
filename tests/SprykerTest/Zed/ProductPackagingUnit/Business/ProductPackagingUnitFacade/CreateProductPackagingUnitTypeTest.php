@@ -91,9 +91,6 @@ class CreateProductPackagingUnitTypeTest extends Unit
         $this->tester->getFacade()->createProductPackagingUnitType($productPackagingUnitTypeTransfer);
     }
 
-    /**
-     * @return array
-     */
     protected function getProductPackagingUnitTypeData(): array
     {
         return [

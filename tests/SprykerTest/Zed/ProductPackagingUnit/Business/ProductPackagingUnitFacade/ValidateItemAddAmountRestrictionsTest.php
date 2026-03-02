@@ -123,9 +123,6 @@ class ValidateItemAddAmountRestrictionsTest extends Unit
         $this->assertSame($expectedIsSuccess, $cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return array
-     */
     protected function itemAdditionAmounts(): array
     {
         return [

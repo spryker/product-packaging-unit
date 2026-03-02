@@ -9,8 +9,5 @@ namespace Spryker\Zed\ProductPackagingUnit\Business\Model\Installer;
 
 interface ProductPackagingUnitTypeInstallerInterface
 {
-    /**
-     * @return void
-     */
     public function install(): void;
 }

@@ -44,9 +44,6 @@ class IsProductPackagingUnitItemQuantitySplittableTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testIsItemQuantitySplittable(): void
     {
         // Arrange
@@ -62,11 +59,6 @@ class IsProductPackagingUnitItemQuantitySplittableTest extends Unit
         $this->assertTrue($isProductPackagingUnitItemQuantitySplittable);
     }
 
-    /**
-     * @param bool $isQuantitySplittable
-     *
-     * @return void
-     */
     protected function saveData(bool $isQuantitySplittable): void
     {
         $productAbstract = SpyProductAbstractQuery::create()

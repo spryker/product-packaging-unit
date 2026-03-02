@@ -23,41 +23,26 @@ use Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitDependencyProvider;
  */
 class ProductPackagingUnitPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitTypeQuery
-     */
     public function createProductPackagingUnitTypeQuery(): SpyProductPackagingUnitTypeQuery
     {
         return SpyProductPackagingUnitTypeQuery::create();
     }
 
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitQuery
-     */
     public function createProductPackagingUnitQuery(): SpyProductPackagingUnitQuery
     {
         return SpyProductPackagingUnitQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Persistence\Propel\Mapper\ProductPackagingUnitMapperInterface
-     */
     public function createProductPackagingUnitMapper(): ProductPackagingUnitMapperInterface
     {
         return new ProductPackagingUnitMapper();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Persistence\Propel\Mapper\ProductMeasurementSalesUnitMapper
-     */
     public function createProductMeasurementSalesUnitMapper(): ProductMeasurementSalesUnitMapper
     {
         return new ProductMeasurementSalesUnitMapper();
     }
 
-    /**
-     * @return \Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery
-     */
     public function getSalesOrderItemQuery(): SpySalesOrderItemQuery
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::PROPEL_QUERY_SALES_ORDER_ITEM);

@@ -24,21 +24,11 @@ class ProductPackagingUnitToProductFacadeBridge implements ProductPackagingUnitT
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer
     {
         return $this->productFacade->findProductConcreteById($idProduct);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int
     {
         return $this->productFacade->findProductConcreteIdBySku($sku);

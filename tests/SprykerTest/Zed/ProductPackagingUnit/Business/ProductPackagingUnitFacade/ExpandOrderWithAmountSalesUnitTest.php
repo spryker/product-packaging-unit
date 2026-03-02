@@ -31,9 +31,6 @@ class ExpandOrderWithAmountSalesUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testHydrateOrderWithAmountSalesUnit(): void
     {
         // Arrange

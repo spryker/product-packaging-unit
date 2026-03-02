@@ -35,9 +35,6 @@ class GetDefaultProductPackagingUnitTypeNameTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testDefaultProductPackagingUnitTypeName(): void
     {
         // Arrange

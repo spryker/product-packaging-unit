@@ -12,47 +12,14 @@ use Generated\Shared\Transfer\TranslationTransfer;
 
 interface ProductPackagingUnitToGlossaryFacadeInterface
 {
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer|null $localeTransfer
-     *
-     * @return bool
-     */
     public function hasTranslation(string $keyName, ?LocaleTransfer $localeTransfer = null): bool;
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     public function getTranslation(string $keyName, LocaleTransfer $localeTransfer): TranslationTransfer;
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string $value
-     * @param bool $isActive
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     public function createTranslation(string $keyName, LocaleTransfer $localeTransfer, string $value, bool $isActive = true): TranslationTransfer;
 
-    /**
-     * @param string $keyName
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     * @param string $value
-     * @param bool $isActive
-     *
-     * @return \Generated\Shared\Transfer\TranslationTransfer
-     */
     public function updateTranslation(string $keyName, LocaleTransfer $localeTransfer, string $value, bool $isActive = true): TranslationTransfer;
 
-    /**
-     * @param string $keyName
-     *
-     * @return bool
-     */
     public function hasKey(string $keyName): bool;
 
     /**
@@ -64,11 +31,6 @@ interface ProductPackagingUnitToGlossaryFacadeInterface
      */
     public function createKey(string $keyName): int;
 
-    /**
-     * @param string $keyName
-     *
-     * @return bool
-     */
     public function deleteKey(string $keyName): bool;
 
     /**

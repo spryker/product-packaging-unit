@@ -42,10 +42,6 @@ class ProductPackagingUnitCartPreCheck extends ProductPackagingUnitAvailabilityP
      */
     protected $productPackagingUnitRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository,
         ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade
@@ -54,11 +50,6 @@ class ProductPackagingUnitCartPreCheck extends ProductPackagingUnitAvailabilityP
         parent::__construct($availabilityFacade);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function checkCartAvailability(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartErrorMessages = new ArrayObject();
@@ -84,12 +75,6 @@ class ProductPackagingUnitCartPreCheck extends ProductPackagingUnitAvailabilityP
         return $this->createCartPreCheckResponseTransfer($cartErrorMessages);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function checkPackagingUnitAvailability(
         ItemTransfer $itemTransfer,
         CartChangeTransfer $cartChangeTransfer
@@ -117,12 +102,6 @@ class ProductPackagingUnitCartPreCheck extends ProductPackagingUnitAvailabilityP
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function checkPackagingUnitLeadProductAvailability(
         ItemTransfer $itemTransfer,
         CartChangeTransfer $cartChangeTransfer
@@ -160,11 +139,6 @@ class ProductPackagingUnitCartPreCheck extends ProductPackagingUnitAvailabilityP
         return $cartErrorMessages;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return void
-     */
     protected function assertQuote(CartChangeTransfer $cartChangeTransfer): void
     {
         $cartChangeTransfer->requireQuote();

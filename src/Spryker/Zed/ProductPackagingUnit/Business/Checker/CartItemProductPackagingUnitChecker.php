@@ -34,19 +34,11 @@ class CartItemProductPackagingUnitChecker implements CartItemProductPackagingUni
      */
     protected $productPackagingUnitRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     */
     public function __construct(ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository)
     {
         $this->productPackagingUnitRepository = $productPackagingUnitRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function checkCartItemProductPackagingUnit(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartPreCheckResponseTransfer = (new CartPreCheckResponseTransfer())->setIsSuccess(true);
@@ -86,11 +78,6 @@ class CartItemProductPackagingUnitChecker implements CartItemProductPackagingUni
         return $productConcreteSkus;
     }
 
-    /**
-     * @param array $parameters
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(array $parameters): MessageTransfer
     {
         return (new MessageTransfer())

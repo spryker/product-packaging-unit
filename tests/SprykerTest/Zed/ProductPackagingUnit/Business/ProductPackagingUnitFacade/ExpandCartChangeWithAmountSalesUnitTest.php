@@ -51,9 +51,6 @@ class ExpandCartChangeWithAmountSalesUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeWithAmountSalesUnit(): void
     {
         // Arrange

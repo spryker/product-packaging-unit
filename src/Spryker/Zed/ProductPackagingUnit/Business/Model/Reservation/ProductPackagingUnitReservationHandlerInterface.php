@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface ProductPackagingUnitReservationHandlerInterface
 {
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     public function updateLeadProductReservation(string $sku): void;
 
     /**

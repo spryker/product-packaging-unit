@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CartPreCheckResponseTransfer;
 
 interface CartItemProductPackagingUnitCheckerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function checkCartItemProductPackagingUnit(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer;
 }

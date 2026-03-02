@@ -38,9 +38,6 @@ class CountProductPackagingUnitsByTypeIdTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCountProductPackagingUnitsByTypeId(): void
     {
         // Arrange

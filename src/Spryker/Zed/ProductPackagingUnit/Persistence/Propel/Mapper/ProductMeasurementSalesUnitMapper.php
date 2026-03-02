@@ -36,12 +36,6 @@ class ProductMeasurementSalesUnitMapper
         return $mappedProductMeasurementSalesUnitTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItem $salesOrderItemEntity
-     * @param \Generated\Shared\Transfer\ProductMeasurementSalesUnitTransfer $productMeasurementSalesUnitTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductMeasurementSalesUnitTransfer
-     */
     protected function mapSalesOrderItemEntityToProductMeasurementSalesUnitTransfer(
         SpySalesOrderItem $salesOrderItemEntity,
         ProductMeasurementSalesUnitTransfer $productMeasurementSalesUnitTransfer
@@ -62,11 +56,6 @@ class ProductMeasurementSalesUnitMapper
         return $productMeasurementSalesUnitTransfer;
     }
 
-    /**
-     * @param \Orm\Zed\Sales\Persistence\SpySalesOrderItem $salesOrderItemEntity
-     *
-     * @return \Generated\Shared\Transfer\ProductMeasurementBaseUnitTransfer
-     */
     protected function createProductMeasurementBaseUnitTransfer(SpySalesOrderItem $salesOrderItemEntity): ProductMeasurementBaseUnitTransfer
     {
         $productMeasurementBaseUnitTransfer = new ProductMeasurementBaseUnitTransfer();
@@ -77,12 +66,6 @@ class ProductMeasurementSalesUnitMapper
         return $productMeasurementBaseUnitTransfer;
     }
 
-    /**
-     * @param string|null $productMeasurementUnitName
-     * @param string|null $productMeasurementUnitCode
-     *
-     * @return \Generated\Shared\Transfer\ProductMeasurementUnitTransfer
-     */
     protected function createProductMeasurementUnitTransfer(
         ?string $productMeasurementUnitName,
         ?string $productMeasurementUnitCode = null

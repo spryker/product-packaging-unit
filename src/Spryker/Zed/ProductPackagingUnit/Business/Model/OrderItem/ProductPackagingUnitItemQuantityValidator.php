@@ -17,19 +17,11 @@ class ProductPackagingUnitItemQuantityValidator implements ProductPackagingUnitI
      */
     protected $salesQuantityFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToSalesQuantityFacadeInterface $salesQuantityFacade
-     */
     public function __construct(ProductPackagingUnitToSalesQuantityFacadeInterface $salesQuantityFacade)
     {
         $this->salesQuantityFacade = $salesQuantityFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     public function isProductPackagingUnitItemQuantitySplittable(ItemTransfer $itemTransfer): bool
     {
         if (!$this->isPackagingUnit($itemTransfer)) {
@@ -39,11 +31,6 @@ class ProductPackagingUnitItemQuantityValidator implements ProductPackagingUnitI
         return $this->salesQuantityFacade->isItemQuantitySplittable($itemTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isPackagingUnit(ItemTransfer $itemTransfer): bool
     {
         return (bool)$itemTransfer->getAmountSalesUnit();

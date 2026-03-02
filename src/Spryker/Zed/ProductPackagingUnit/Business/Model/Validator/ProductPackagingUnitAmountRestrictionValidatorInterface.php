@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\CartPreCheckResponseTransfer;
 
 interface ProductPackagingUnitAmountRestrictionValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function validateItemAddition(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer;
 }

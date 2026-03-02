@@ -18,19 +18,11 @@ class ProductPackagingUnitPickingListExpander implements ProductPackagingUnitPic
      */
     protected OrderItemExpanderInterface $orderItemExpander;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Model\OrderItem\OrderItemExpanderInterface $orderItemExpander
-     */
     public function __construct(OrderItemExpanderInterface $orderItemExpander)
     {
         $this->orderItemExpander = $orderItemExpander;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PickingListCollectionTransfer $pickingListCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PickingListCollectionTransfer
-     */
     public function expandPickingListCollection(
         PickingListCollectionTransfer $pickingListCollectionTransfer
     ): PickingListCollectionTransfer {

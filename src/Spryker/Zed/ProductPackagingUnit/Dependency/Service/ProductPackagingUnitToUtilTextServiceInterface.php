@@ -9,10 +9,5 @@ namespace Spryker\Zed\ProductPackagingUnit\Dependency\Service;
 
 interface ProductPackagingUnitToUtilTextServiceInterface
 {
-    /**
-     * @param string $value
-     *
-     * @return string
-     */
     public function generateSlug(string $value): string;
 }

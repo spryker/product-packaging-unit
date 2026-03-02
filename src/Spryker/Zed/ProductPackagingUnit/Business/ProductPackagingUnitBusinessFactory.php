@@ -84,9 +84,6 @@ use Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitDependencyProvider;
  */
 class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Installer\ProductPackagingUnitTypeInstallerInterface
-     */
     public function createProductPackagingUnitTypeInstaller(): ProductPackagingUnitTypeInstallerInterface
     {
         return new ProductPackagingUnitTypeInstaller(
@@ -95,9 +92,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeReaderInterface
-     */
     public function createProductPackagingUnitTypeReader(): ProductPackagingUnitTypeReaderInterface
     {
         return new ProductPackagingUnitTypeReader(
@@ -106,9 +100,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeWriterInterface
-     */
     public function createProductPackagingUnitTypeWriter(): ProductPackagingUnitTypeWriterInterface
     {
         return new ProductPackagingUnitTypeWriter(
@@ -119,9 +110,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeTranslationReaderInterface
-     */
     public function createProductPackagingUnitTypeTranslationReader(): ProductPackagingUnitTypeTranslationReaderInterface
     {
         return new ProductPackagingUnitTypeTranslationReader(
@@ -130,9 +118,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeTranslationWriterInterface
-     */
     public function createProductPackagingUnitTypeTranslationWriter(): ProductPackagingUnitTypeTranslationWriterInterface
     {
         return new ProductPackagingUnitTypeTranslationWriter(
@@ -141,25 +126,16 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Reader\ProductPackagingUnitReaderInterface
-     */
     public function createProductPackagingUnitReader(): ProductPackagingUnitReaderInterface
     {
         return new ProductPackagingUnitReader($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToLocaleFacadeInterface
-     */
     public function getLocaleFacade(): ProductPackagingUnitToLocaleFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_LOCALE);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Availability\ProductPackagingUnitAvailabilityHandlerInterface
-     */
     public function createProductPackagingUnitAvailabilityHandler(): ProductPackagingUnitAvailabilityHandlerInterface
     {
         return new ProductPackagingUnitAvailabilityHandler(
@@ -169,9 +145,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Reservation\ProductPackagingUnitReservationHandlerInterface
-     */
     public function createProductPackagingUnitReservationHandler(): ProductPackagingUnitReservationHandlerInterface
     {
         return new ProductPackagingUnitReservationHandler(
@@ -180,9 +153,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Availability\PreCheck\ProductPackagingUnitCartPreCheckInterface
-     */
     public function createProductPackagingUnitCartPreCheck(): ProductPackagingUnitCartPreCheckInterface
     {
         return new ProductPackagingUnitCartPreCheck(
@@ -191,9 +161,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Availability\PreCheck\ProductPackagingUnitCheckoutPreCheckInterface
-     */
     public function createProductPackagingUnitCheckoutPreCheck(): ProductPackagingUnitCheckoutPreCheckInterface
     {
         return new ProductPackagingUnitCheckoutPreCheck(
@@ -201,25 +168,16 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Checker\CartItemProductPackagingUnitCheckerInterface
-     */
     public function createCartItemProductPackagingUnitChecker(): CartItemProductPackagingUnitCheckerInterface
     {
         return new CartItemProductPackagingUnitChecker($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Cart\ProductPackagingUnitCartOperationInterface
-     */
     public function createProductPackagingUnitCartOperation(): ProductPackagingUnitCartOperationInterface
     {
         return new ProductPackagingUnitCartOperation();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Expander\PickingList\ProductPackagingUnitPickingListExpanderInterface
-     */
     public function createProductPackagingUnitPickingListExpander(): ProductPackagingUnitPickingListExpanderInterface
     {
         return new ProductPackagingUnitPickingListExpander(
@@ -227,17 +185,11 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Merger\CartReorderItemMergerInterface
-     */
     public function createCartReorderItemMerger(): CartReorderItemMergerInterface
     {
         return new CartReorderItemMerger($this->createProductPackagingUnitItemExtractor());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Hydrator\CartReorderItemHydratorInterface
-     */
     public function createCartReorderItemHydrator(): CartReorderItemHydratorInterface
     {
         return new CartReorderItemHydrator(
@@ -246,65 +198,41 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Extractor\ProductPackagingUnitItemExtractorInterface
-     */
     public function createProductPackagingUnitItemExtractor(): ProductPackagingUnitItemExtractorInterface
     {
         return new ProductPackagingUnitItemExtractor();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToGlossaryFacadeInterface
-     */
     public function getGlossaryFacade(): ProductPackagingUnitToGlossaryFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_GLOSSARY);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeInterface
-     */
     public function getAvailabilityFacade(): ProductPackagingUnitToAvailabilityFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_AVAILABILITY);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToOmsFacadeInterface
-     */
     public function getOmsFacade(): ProductPackagingUnitToOmsFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_OMS);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToStoreFacadeInterface
-     */
     public function getStoreFacade(): ProductPackagingUnitToStoreFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_STORE);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductFacadeInterface
-     */
     public function getProductFacade(): ProductPackagingUnitToProductFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_PRODUCT);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToSalesQuantityFacadeInterface
-     */
     public function getSalesQuantityFacade(): ProductPackagingUnitToSalesQuantityFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_SALES_QUANTITY);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\CartChange\AmountGroupKeyItemExpanderInterface
-     */
     public function createAmountGroupKeyItemExpander(): AmountGroupKeyItemExpanderInterface
     {
         return new AmountGroupKeyItemExpander(
@@ -312,9 +240,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\CartChange\AmountSalesUnitItemExpanderInterface
-     */
     public function createAmountSalesUnitItemExpander(): AmountSalesUnitItemExpanderInterface
     {
         return new AmountSalesUnitItemExpander(
@@ -322,9 +247,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\CartChange\ProductPackagingUnitItemExpanderInterface
-     */
     public function createProductPackagingUnitItemExpander(): ProductPackagingUnitItemExpanderInterface
     {
         return new ProductPackagingUnitItemExpander(
@@ -332,17 +254,11 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductMeasurementUnitFacadeInterface
-     */
     public function getProductMeasurementUnitFacade(): ProductPackagingUnitToProductMeasurementUnitFacadeInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::FACADE_PRODUCT_MEASUREMENT_UNIT);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\OrderItem\OrderItemExpanderInterface
-     */
     public function createOrderItemExpander(): OrderItemExpanderInterface
     {
         return new OrderItemExpander(
@@ -352,33 +268,21 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\PriceChange\PriceChangeExpanderInterface
-     */
     public function createPriceChangeExpander(): PriceChangeExpanderInterface
     {
         return new PriceChangeExpander();
     }
 
-   /**
-    * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnit\ProductPackagingUnitAmountSalesUnitValueInterface
-    */
     public function createProductPackagingUnitAmountSalesUnitValue(): ProductPackagingUnitAmountSalesUnitValueInterface
     {
         return new ProductPackagingUnitAmountSalesUnitValue();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnit\ProductPackagingUnitGroupKeyGeneratorInterface
-     */
     public function createProductPackagingUnitGroupKeyGenerator(): ProductPackagingUnitGroupKeyGeneratorInterface
     {
         return new ProductPackagingUnitGroupKeyGenerator();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\Validator\ProductPackagingUnitAmountRestrictionValidatorInterface
-     */
     public function createProductPackagingUnitAmountRestrictionValidator(): ProductPackagingUnitAmountRestrictionValidatorInterface
     {
         return new ProductPackagingUnitAmountRestrictionValidator(
@@ -386,9 +290,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeKeyGeneratorInterface
-     */
     public function createProductPackagingUnitTypeKeyGenerator(): ProductPackagingUnitTypeKeyGeneratorInterface
     {
         return new ProductPackagingUnitTypeKeyGenerator(
@@ -396,9 +297,6 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Dependency\Service\ProductPackagingUnitToUtilTextServiceInterface
-     */
     public function getUtilTextService(): ProductPackagingUnitToUtilTextServiceInterface
     {
         return $this->getProvidedDependency(ProductPackagingUnitDependencyProvider::SERVICE_UTIL_TEXT);
@@ -430,17 +328,11 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\OrderItem\SplittableOrderItemTransformerInterface
-     */
     public function createSplittableOrderItemTransformer(): SplittableOrderItemTransformerInterface
     {
         return new SplittableOrderItemTransformer();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductPackagingUnit\Business\Model\OrderItem\ProductPackagingUnitItemQuantityValidatorInterface
-     */
     public function createProductPackagingUnitItemQuantityValidator(): ProductPackagingUnitItemQuantityValidatorInterface
     {
         return new ProductPackagingUnitItemQuantityValidator(

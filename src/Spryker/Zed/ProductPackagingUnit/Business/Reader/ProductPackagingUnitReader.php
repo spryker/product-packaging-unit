@@ -16,9 +16,6 @@ class ProductPackagingUnitReader implements ProductPackagingUnitReaderInterface
      */
     protected $productPackagingUnitRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     */
     public function __construct(ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository)
     {
         $this->productPackagingUnitRepository = $productPackagingUnitRepository;

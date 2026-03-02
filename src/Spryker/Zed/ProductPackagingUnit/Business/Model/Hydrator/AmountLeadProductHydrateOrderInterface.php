@@ -14,10 +14,5 @@ use Generated\Shared\Transfer\OrderTransfer;
  */
 interface AmountLeadProductHydrateOrderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function expandOrderWithAmountLeadProduct(OrderTransfer $orderTransfer): OrderTransfer;
 }

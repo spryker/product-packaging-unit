@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer;
 
 interface ProductPackagingUnitTypeKeyGeneratorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return void
-     */
     public function generateProductPackagingUnitTypeKey(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): void;
 }

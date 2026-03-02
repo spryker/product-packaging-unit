@@ -43,9 +43,6 @@ class UpdateLeadProductReservationTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testUpdateProductPackagingUnitLeadProductReservation(): void
     {
         // Arrange
@@ -54,9 +51,6 @@ class UpdateLeadProductReservationTest extends Unit
         $this->tester->getFacade()->updateLeadProductReservation($boxProductConcreteTransfer->getSku());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     protected function createProductPackagingUnitProductConcrete(): ProductConcreteTransfer
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();

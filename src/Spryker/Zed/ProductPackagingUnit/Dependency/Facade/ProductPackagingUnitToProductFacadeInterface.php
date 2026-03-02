@@ -11,18 +11,8 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 
 interface ProductPackagingUnitToProductFacadeInterface
 {
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer;
 
-    /**
-     * @param string $sku
-     *
-     * @return int|null
-     */
     public function findProductConcreteIdBySku(string $sku): ?int;
 
     /**

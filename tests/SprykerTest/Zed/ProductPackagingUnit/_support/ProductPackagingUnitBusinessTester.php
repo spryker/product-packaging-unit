@@ -50,14 +50,6 @@ class ProductPackagingUnitBusinessTester extends Actor
 {
     use _generated\ProductPackagingUnitBusinessTesterActions;
 
-    /**
-     * @param int $amount
-     * @param int $quantity
-     * @param float $conversion
-     * @param int $precision
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransferForValueCalculation(int $amount, int $quantity, float $conversion, int $precision): QuoteTransfer
     {
         return (new QuoteTransfer())
@@ -71,9 +63,6 @@ class ProductPackagingUnitBusinessTester extends Actor
                 ));
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createEmptyCartChangeTransfer(): CartChangeTransfer
     {
         return (new CartChangeTransfer())
@@ -84,14 +73,6 @@ class ProductPackagingUnitBusinessTester extends Actor
             ->setItems(new ArrayObject([]));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $boxProductConcreteTransfer
-     * @param \Generated\Shared\Transfer\ProductMeasurementSalesUnitTransfer $productMeasurementSalesUnitTransfer
-     * @param int $itemAmount
-     * @param int $itemQuantity
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferForProductPackagingUnitValidation(
         ProductConcreteTransfer $boxProductConcreteTransfer,
         ProductMeasurementSalesUnitTransfer $productMeasurementSalesUnitTransfer,
@@ -112,13 +93,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param string $sku
-     * @param int $amount
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function addSkuToCartChangeTransfer(CartChangeTransfer $cartChangeTransfer, string $sku, int $amount): CartChangeTransfer
     {
         $cartChangeTransfer->addItem(
@@ -130,12 +104,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param string $sku
-     * @param int $amount
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithItem(string $sku, int $amount): CartChangeTransfer
     {
         return (new CartChangeTransfer())->addItem(
@@ -146,13 +114,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param string $sku
-     * @param int $idProductPackagingUnit
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function addProductPackagingUnitToCartChangeTransfer(
         CartChangeTransfer $cartChangeTransfer,
         string $sku,
@@ -167,13 +128,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param string $dummyGroupKey
-     * @param int $dummyAmount
-     * @param int $dummyQuantity
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithoutAmountSalesUnitForGroupKeyGeneration(
         string $dummyGroupKey,
         int $dummyAmount,
@@ -189,14 +143,6 @@ class ProductPackagingUnitBusinessTester extends Actor
             );
     }
 
-    /**
-     * @param string $dummyGroupKey
-     * @param int $dummyAmount
-     * @param int $dummyQuantity
-     * @param int $dummySalesUnitId
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function createCartChangeTransferWithAmountSalesUnitForGroupKeyGeneration(
         string $dummyGroupKey,
         int $dummyAmount,
@@ -213,21 +159,11 @@ class ProductPackagingUnitBusinessTester extends Actor
             );
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransfer(): QuoteTransfer
     {
         return new QuoteTransfer();
     }
 
-    /**
-     * @param string $sku
-     * @param int $itemQuantity
-     * @param \Spryker\DecimalObject\Decimal $itemAmount
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     public function createProductPackagingUnitItemTransfer(
         string $sku,
         int $itemQuantity,
@@ -239,14 +175,6 @@ class ProductPackagingUnitBusinessTester extends Actor
             ->setAmount($itemQuantity);
     }
 
-    /**
-     * @param int $quantity
-     * @param \Spryker\DecimalObject\Decimal $amount
-     * @param int $itemsCount
-     * @param bool $selfLead
-     *
-     * @return array
-     */
     public function haveProductPackagingUnitWithSalesOrderItems(int $quantity, Decimal $amount, int $itemsCount, bool $selfLead = false): array
     {
         [$leadProductConcreteTransfer, $packagingUnitProductConcreteTransfer] = $this->havePackagingUnitAndLead($selfLead);
@@ -274,15 +202,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         ];
     }
 
-    /**
-     * @param int $itemsCount
-     * @param int $quantity
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal|null $amount
-     * @param string|null $amountSku
-     *
-     * @return \Generated\Shared\Transfer\OmsStateCollectionTransfer
-     */
     public function haveSalesOrderWithItems(
         int $itemsCount,
         int $quantity,
@@ -324,11 +243,6 @@ class ProductPackagingUnitBusinessTester extends Actor
         return $stateCollectionTransfer;
     }
 
-    /**
-     * @param string $stateMachineProcessName
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function createOrderWithProductPackagingUnits(string $stateMachineProcessName): OrderTransfer
     {
         $quoteTransfer = (new QuoteBuilder())
@@ -356,9 +270,6 @@ class ProductPackagingUnitBusinessTester extends Actor
             ->setItems($saveOrderTransfer->getOrderItems());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createItemWithProductPackagingUnit(): ItemTransfer
     {
         $productConcreteTransfer = $this->haveProduct();

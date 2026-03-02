@@ -34,9 +34,6 @@ class PriceChangeExpanderTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testCustomAmountPriceIsCorrect(): void
     {
         $priceChangeExpander = new PriceChangeExpander();

@@ -44,9 +44,6 @@ class TransformSplittableItemTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testTransformSplittableItem(): void
     {
         // Arrange
@@ -67,11 +64,6 @@ class TransformSplittableItemTest extends Unit
         }
     }
 
-    /**
-     * @param bool $isQuantitySplittable
-     *
-     * @return void
-     */
     protected function saveData(bool $isQuantitySplittable): void
     {
         $productAbstract = SpyProductAbstractQuery::create()

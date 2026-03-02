@@ -42,12 +42,6 @@ class ProductPackagingUnitHelper extends Module
         return $productPackagingUnitEntity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntity
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer $packagingUnitAmountTransfer
-     *
-     * @return \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer
-     */
     protected function storeProductPackagingUnit(
         SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntity,
         ProductPackagingUnitAmountTransfer $packagingUnitAmountTransfer
@@ -68,11 +62,6 @@ class ProductPackagingUnitHelper extends Module
         return $productPackagingUnitEntity;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntity
-     *
-     * @return void
-     */
     protected function cleanupProductPackagingUnit(SpyProductPackagingUnitEntityTransfer $productPackagingUnitEntity): void
     {
         $this->debug(sprintf('Deleting product packaging unit with ID: %d', $productPackagingUnitEntity->getIdProductPackagingUnit()));
@@ -82,9 +71,6 @@ class ProductPackagingUnitHelper extends Module
             ->delete();
     }
 
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitQuery
-     */
     protected function getProductPackagingUnitQuery(): SpyProductPackagingUnitQuery
     {
         return SpyProductPackagingUnitQuery::create();

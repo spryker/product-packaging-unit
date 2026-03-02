@@ -25,10 +25,6 @@ class ProductPackagingUnitReservationHandler implements ProductPackagingUnitRese
      */
     protected $omsFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToOmsFacadeInterface $omsFacade
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository,
         ProductPackagingUnitToOmsFacadeInterface $omsFacade
@@ -37,11 +33,6 @@ class ProductPackagingUnitReservationHandler implements ProductPackagingUnitRese
         $this->omsFacade = $omsFacade;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     public function updateLeadProductReservation(string $sku): void
     {
         $productPackagingLeadProductTransfer = $this->productPackagingUnitRepository

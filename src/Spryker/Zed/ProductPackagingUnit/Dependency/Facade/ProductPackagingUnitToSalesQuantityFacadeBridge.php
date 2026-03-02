@@ -24,11 +24,6 @@ class ProductPackagingUnitToSalesQuantityFacadeBridge implements ProductPackagin
         $this->salesQuantityFacade = $salesQuantityFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     public function isItemQuantitySplittable(ItemTransfer $itemTransfer): bool
     {
         return $this->salesQuantityFacade->isItemQuantitySplittable($itemTransfer);

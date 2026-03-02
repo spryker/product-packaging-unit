@@ -58,9 +58,6 @@ class ExpandCartChangeGroupKeyWithAmountTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeGroupKeyWithAmountSalesUnitNoSalesUnitIsDefined(): void
     {
         // Arrange
@@ -74,9 +71,6 @@ class ExpandCartChangeGroupKeyWithAmountTest extends Unit
         $this->assertSame(static::GROUP_KEY, $itemTransfer->getGroupKey());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeGroupKeyWithAmountSalesUnitIfSalesUnitIsDefined(): void
     {
         // Arrange

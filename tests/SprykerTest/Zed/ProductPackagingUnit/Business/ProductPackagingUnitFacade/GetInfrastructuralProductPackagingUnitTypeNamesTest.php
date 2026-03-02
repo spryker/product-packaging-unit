@@ -28,9 +28,6 @@ class GetInfrastructuralProductPackagingUnitTypeNamesTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGetInfrastructuralProductPackagingUnitTypeNames(): void
     {
         // Act

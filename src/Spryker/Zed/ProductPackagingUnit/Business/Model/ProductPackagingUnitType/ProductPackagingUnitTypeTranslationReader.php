@@ -25,10 +25,6 @@ class ProductPackagingUnitTypeTranslationReader implements ProductPackagingUnitT
      */
     protected $glossaryFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToGlossaryFacadeInterface $glossaryFacade
-     */
     public function __construct(
         ProductPackagingUnitToLocaleFacadeInterface $localeFacade,
         ProductPackagingUnitToGlossaryFacadeInterface $glossaryFacade
@@ -37,11 +33,6 @@ class ProductPackagingUnitTypeTranslationReader implements ProductPackagingUnitT
         $this->glossaryFacade = $glossaryFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer
-     */
     public function hydrateTranslations(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): ProductPackagingUnitTypeTransfer
     {
         $availableLocales = $this->localeFacade->getLocaleCollection();
@@ -52,12 +43,6 @@ class ProductPackagingUnitTypeTranslationReader implements ProductPackagingUnitT
         return $productPackagingUnitTypeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer
-     */
     protected function hydrateNameTranslations(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer,
         LocaleTransfer $localeTransfer

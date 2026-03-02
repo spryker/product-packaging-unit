@@ -46,19 +46,11 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
      */
     protected $productPackagingUnitRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     */
     public function __construct(ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository)
     {
         $this->productPackagingUnitRepository = $productPackagingUnitRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     public function validateItemAddition(CartChangeTransfer $cartChangeTransfer): CartPreCheckResponseTransfer
     {
         $cartPreCheckResponseTransfer = (new CartPreCheckResponseTransfer())->setIsSuccess(true);
@@ -70,12 +62,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param \Generated\Shared\Transfer\CartPreCheckResponseTransfer $cartPreCheckResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     protected function validateItemsAmounts(
         CartChangeTransfer $cartChangeTransfer,
         CartPreCheckResponseTransfer $cartPreCheckResponseTransfer
@@ -196,14 +182,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         return $this->mapProductPackagingUnitAmountTransfersBySku($itemTransfers);
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $amount
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer $productPackagingUnitAmountTransfer
-     * @param \Generated\Shared\Transfer\CartPreCheckResponseTransfer $cartPreCheckResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartPreCheckResponseTransfer
-     */
     protected function validateItem(
         string $sku,
         Decimal $amount,
@@ -233,13 +211,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         return $cartPreCheckResponseTransfer;
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $amount
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer $productPackagingUnitAmountTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function validateItemIsAmountVariableCase(
         string $sku,
         Decimal $amount,
@@ -254,13 +225,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         return null;
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $amount
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer $productPackagingUnitAmountTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function validateItemMinCases(
         string $sku,
         Decimal $amount,
@@ -283,13 +247,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         return null;
     }
 
-    /**
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $amount
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer $productPackagingUnitAmountTransfer
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer|null
-     */
     protected function validateItemMaxCases(
         string $sku,
         Decimal $amount,
@@ -304,14 +261,6 @@ class ProductPackagingUnitAmountRestrictionValidator implements ProductPackaging
         return null;
     }
 
-    /**
-     * @param string $message
-     * @param string $sku
-     * @param \Spryker\DecimalObject\Decimal $restrictionValue
-     * @param \Spryker\DecimalObject\Decimal $actualValue
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createMessageTransfer(
         string $message,
         string $sku,

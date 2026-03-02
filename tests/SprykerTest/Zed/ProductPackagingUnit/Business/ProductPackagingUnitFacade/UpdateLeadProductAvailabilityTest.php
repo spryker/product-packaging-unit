@@ -43,9 +43,6 @@ class UpdateLeadProductAvailabilityTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testUpdateProductPackagingUnitLeadProductAvailability(): void
     {
         // Arrange
@@ -65,9 +62,6 @@ class UpdateLeadProductAvailabilityTest extends Unit
         $this->assertNotNull($productConcreteAvailabilityTransfer->getAvailability());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     protected function createProductPackagingUnitProductConcrete(): ProductConcreteTransfer
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();

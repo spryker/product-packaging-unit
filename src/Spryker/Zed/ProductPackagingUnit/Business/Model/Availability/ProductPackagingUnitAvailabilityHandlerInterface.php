@@ -9,10 +9,5 @@ namespace Spryker\Zed\ProductPackagingUnit\Business\Model\Availability;
 
 interface ProductPackagingUnitAvailabilityHandlerInterface
 {
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     public function updateProductPackagingUnitLeadProductAvailability(string $sku): void;
 }

@@ -17,20 +17,12 @@ class AmountGroupKeyItemExpander implements AmountGroupKeyItemExpanderInterface
      */
     protected $productPackagingUnitGroupKeyGenerator;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnit\ProductPackagingUnitGroupKeyGeneratorInterface $productPackagingUnitGroupKeyGenerator
-     */
     public function __construct(
         ProductPackagingUnitGroupKeyGeneratorInterface $productPackagingUnitGroupKeyGenerator
     ) {
         $this->productPackagingUnitGroupKeyGenerator = $productPackagingUnitGroupKeyGenerator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandCartWithAmountGroupKey(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {

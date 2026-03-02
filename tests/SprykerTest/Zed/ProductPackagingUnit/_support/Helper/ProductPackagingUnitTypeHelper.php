@@ -17,11 +17,6 @@ class ProductPackagingUnitTypeHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @param array $override
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer
-     */
     public function haveProductPackagingUnitType(array $override = []): ProductPackagingUnitTypeTransfer
     {
         $productPackagingUnitTypeTransfer = (new ProductPackagingUnitTypeBuilder())
@@ -37,11 +32,6 @@ class ProductPackagingUnitTypeHelper extends Module
         return $productPackagingUnitTypeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer
-     */
     protected function storeProductPackagingUnitType(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): ProductPackagingUnitTypeTransfer
     {
         $spyProductPackagingUnitTypeEntity = $this->getProductPackagingUnitTypeQuery()
@@ -57,11 +47,6 @@ class ProductPackagingUnitTypeHelper extends Module
         return $productPackagingUnitTypeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return void
-     */
     protected function cleanupProductPackagingUnitType(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): void
     {
         $this->debug(sprintf('Deleting product packaging unit type with name: %s', $productPackagingUnitTypeTransfer->getName()));
@@ -71,9 +56,6 @@ class ProductPackagingUnitTypeHelper extends Module
             ->delete();
     }
 
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitTypeQuery
-     */
     protected function getProductPackagingUnitTypeQuery(): SpyProductPackagingUnitTypeQuery
     {
         return SpyProductPackagingUnitTypeQuery::create();

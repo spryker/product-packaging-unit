@@ -37,9 +37,6 @@ class FindProductIdsByProductPackagingUnitTypeIdsTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFindProductIdsByProductPackagingUnitTypeIds(): void
     {
         // Arrange

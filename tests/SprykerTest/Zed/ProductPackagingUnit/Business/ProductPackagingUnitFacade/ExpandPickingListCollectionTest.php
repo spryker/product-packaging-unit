@@ -33,9 +33,6 @@ class ExpandPickingListCollectionTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandPickingListCollectionShouldReturnPickingListCollectionWithAmountSalesUnits(): void
     {
         // Arrange

@@ -52,9 +52,6 @@ class SetCustomAmountPriceTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testSetCustomAmountPrice(): void
     {
         // Arrange

@@ -14,38 +14,18 @@ use Generated\Shared\Transfer\StoreTransfer;
 
 interface ProductPackagingUnitRepositoryInterface
 {
-    /**
-     * @param string $productPackagingUnitTypeName
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer|null
-     */
     public function findProductPackagingUnitTypeByName(
         string $productPackagingUnitTypeName
     ): ?ProductPackagingUnitTypeTransfer;
 
-    /**
-     * @param int $idProductPackagingUnitType
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer|null
-     */
     public function findProductPackagingUnitTypeById(
         int $idProductPackagingUnitType
     ): ?ProductPackagingUnitTypeTransfer;
 
-    /**
-     * @param int $idProductPackagingUnitType
-     *
-     * @return int
-     */
     public function countProductPackagingUnitsByTypeId(
         int $idProductPackagingUnitType
     ): int;
 
-    /**
-     * @param string $siblingProductSku
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductPackagingUnitLeadProductForPackagingUnit(
         string $siblingProductSku
     ): ?ProductConcreteTransfer;
@@ -57,29 +37,14 @@ interface ProductPackagingUnitRepositoryInterface
      */
     public function findProductIdsByProductPackagingUnitTypeIds(array $productPackagingUnitTypeIds): array;
 
-    /**
-     * @param int $idProductPackagingUnit
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer|null
-     */
     public function findProductPackagingUnitById(
         int $idProductPackagingUnit
     ): ?ProductPackagingUnitTransfer;
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer|null
-     */
     public function findProductPackagingUnitByProductId(
         int $idProduct
     ): ?ProductPackagingUnitTransfer;
 
-    /**
-     * @param string $productSku
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer|null
-     */
     public function findProductPackagingUnitByProductSku(
         string $productSku
     ): ?ProductPackagingUnitTransfer;

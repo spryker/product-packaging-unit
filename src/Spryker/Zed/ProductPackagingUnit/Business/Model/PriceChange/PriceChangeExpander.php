@@ -26,11 +26,6 @@ class PriceChangeExpander implements PriceChangeExpanderInterface
      */
     protected const DIVISION_SCALE = 10;
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function setCustomAmountPrice(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {

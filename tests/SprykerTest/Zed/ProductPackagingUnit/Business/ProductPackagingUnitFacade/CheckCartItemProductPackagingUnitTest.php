@@ -42,9 +42,6 @@ class CheckCartItemProductPackagingUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckCartItemProductPackagingUnitWillReturnSuccessfulResponseWithEmptyCartChangeTransfer(): void
     {
         // Arrange
@@ -58,9 +55,6 @@ class CheckCartItemProductPackagingUnitTest extends Unit
         $this->assertCount(0, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckCartItemProductPackagingUnitWillReturnSuccessfulResponseWithExistingPackagingUnitForCartItem(): void
     {
         // Arrange
@@ -94,9 +88,6 @@ class CheckCartItemProductPackagingUnitTest extends Unit
         $this->assertCount(0, $cartPreCheckResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckCartItemProductPackagingUnitWillReturnResponseWithErrorWithNoPackagingUnit(): void
     {
         // Arrange

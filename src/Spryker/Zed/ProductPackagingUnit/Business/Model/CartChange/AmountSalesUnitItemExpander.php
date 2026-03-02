@@ -18,20 +18,12 @@ class AmountSalesUnitItemExpander implements AmountSalesUnitItemExpanderInterfac
      */
     protected $productMeasurementUnitFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade
-     */
     public function __construct(
         ProductPackagingUnitToProductMeasurementUnitFacadeInterface $productMeasurementUnitFacade
     ) {
         $this->productMeasurementUnitFacade = $productMeasurementUnitFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandCartWithAmountSalesUnit(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
@@ -51,11 +43,6 @@ class AmountSalesUnitItemExpander implements AmountSalesUnitItemExpanderInterfac
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function resetAmountAndQuantitySalesUnits(ItemTransfer $itemTransfer): ItemTransfer
     {
         $itemTransfer->setQuantitySalesUnit(null);
@@ -63,11 +50,6 @@ class AmountSalesUnitItemExpander implements AmountSalesUnitItemExpanderInterfac
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function expandItemWithAmountSalesUnit(ItemTransfer $itemTransfer): ItemTransfer
     {
         $itemTransfer->getAmountSalesUnit()->requireIdProductMeasurementSalesUnit();

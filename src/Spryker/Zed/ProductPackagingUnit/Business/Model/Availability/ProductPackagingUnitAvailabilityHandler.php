@@ -28,11 +28,6 @@ class ProductPackagingUnitAvailabilityHandler implements ProductPackagingUnitAva
      */
     protected $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToStoreFacadeInterface $storeFacade
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository,
         ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade,
@@ -43,11 +38,6 @@ class ProductPackagingUnitAvailabilityHandler implements ProductPackagingUnitAva
         $this->storeFacade = $storeFacade;
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return void
-     */
     public function updateProductPackagingUnitLeadProductAvailability(string $sku): void
     {
         $productPackagingLeadProductTransfer = $this->productPackagingUnitRepository

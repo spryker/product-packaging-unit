@@ -36,9 +36,6 @@ class AggregateProductPackagingUnitReservationTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testAggregateProductPackagingUnitReservationAmount(): void
     {
         // Arrange
@@ -69,9 +66,6 @@ class AggregateProductPackagingUnitReservationTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAggregateProductPackagingUnitReservationAmountWithSelfLeadProduct(): void
     {
         // Arrange
@@ -102,9 +96,6 @@ class AggregateProductPackagingUnitReservationTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAggregateProductPackagingUnitReservationAmountWithNoPackagingUnit(): void
     {
         // Arrange
@@ -132,9 +123,6 @@ class AggregateProductPackagingUnitReservationTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testAggregateProductPackagingUnitReservationAmountWithNoPackagingUnitButAlsoPackagingUnit(): void
     {
         // Arrange

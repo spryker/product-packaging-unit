@@ -18,19 +18,11 @@ class ProductPackagingUnitItemExpander implements ProductPackagingUnitItemExpand
      */
     protected $productPackagingUnitRepository;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     */
     public function __construct(ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository)
     {
         $this->productPackagingUnitRepository = $productPackagingUnitRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandCartChangeWithProductPackagingUnit(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
@@ -44,11 +36,6 @@ class ProductPackagingUnitItemExpander implements ProductPackagingUnitItemExpand
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function expandItem(ItemTransfer $itemTransfer): ItemTransfer
     {
         $itemTransfer = $this->expandItemWithLeadProduct($itemTransfer);

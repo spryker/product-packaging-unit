@@ -49,9 +49,6 @@ class ExpandSalesOrderItemWithAmountAndAmountSkuTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemWithAmountAndAmountSku(): void
     {
         // Arrange
@@ -68,9 +65,6 @@ class ExpandSalesOrderItemWithAmountAndAmountSkuTest extends Unit
         $this->assertSame($itemTransfer->getAmountLeadProduct()->getSku(), $salesOrderItemEntity->getAmountSku());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createTestPackagingUnitItemTransfer(): ItemTransfer
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();

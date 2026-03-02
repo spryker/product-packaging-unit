@@ -22,20 +22,12 @@ class ProductPackagingUnitTypeKeyGenerator implements ProductPackagingUnitTypeKe
      */
     protected $utilTextService;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Service\ProductPackagingUnitToUtilTextServiceInterface $utilTextService
-     */
     public function __construct(
         ProductPackagingUnitToUtilTextServiceInterface $utilTextService
     ) {
         $this->utilTextService = $utilTextService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return void
-     */
     public function generateProductPackagingUnitTypeKey(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): void
     {
         if ($productPackagingUnitTypeTransfer->getName()) {
@@ -46,11 +38,6 @@ class ProductPackagingUnitTypeKeyGenerator implements ProductPackagingUnitTypeKe
         $productPackagingUnitTypeTransfer->setName($name);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return string
-     */
     protected function generateTranslationName(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): string
     {
         /** @var \Generated\Shared\Transfer\ProductPackagingUnitTypeTranslationTransfer $enTranslation */

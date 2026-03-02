@@ -57,9 +57,6 @@ class CalculateAmountSalesUnitValueInQuoteTest extends Unit
         $this->assertSame($expectedResult, $itemTransfer->getAmountSalesUnit()->getValue());
     }
 
-    /**
-     * @return array
-     */
     protected function calculateAmountNormalizedSalesUnitValues(): array
     {
         return [

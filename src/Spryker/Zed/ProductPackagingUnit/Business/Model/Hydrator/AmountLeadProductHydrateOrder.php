@@ -29,10 +29,6 @@ class AmountLeadProductHydrateOrder implements AmountLeadProductHydrateOrderInte
      */
     protected $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToProductFacadeInterface $productFacade
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $productPackagingUnitRepository,
         ProductPackagingUnitToProductFacadeInterface $productFacade
@@ -41,11 +37,6 @@ class AmountLeadProductHydrateOrder implements AmountLeadProductHydrateOrderInte
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OrderTransfer $orderTransfer
-     *
-     * @return \Generated\Shared\Transfer\OrderTransfer
-     */
     public function expandOrderWithAmountLeadProduct(OrderTransfer $orderTransfer): OrderTransfer
     {
         $spySalesOrderItemEntityTransfers = $this->productPackagingUnitRepository
@@ -67,12 +58,6 @@ class AmountLeadProductHydrateOrder implements AmountLeadProductHydrateOrderInte
         return $orderTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer $spySalesOrderItemEntityTransfer
-     *
-     * @return void
-     */
     protected function setAmountLeadProduct(ItemTransfer $itemTransfer, SpySalesOrderItemEntityTransfer $spySalesOrderItemEntityTransfer): void
     {
         if (!$spySalesOrderItemEntityTransfer->getAmountSku() || !$spySalesOrderItemEntityTransfer->getAmount()) {
@@ -88,11 +73,6 @@ class AmountLeadProductHydrateOrder implements AmountLeadProductHydrateOrderInte
         $itemTransfer->setAmountLeadProduct($leadProductConcreteTransfer);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     protected function findProductConcreteBySku(string $sku): ?ProductConcreteTransfer
     {
         $idProductConcrete = $this->productFacade->findProductConcreteIdBySku($sku);

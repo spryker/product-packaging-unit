@@ -21,11 +21,6 @@ class ProductPackagingUnitGroupKeyGenerator implements ProductPackagingUnitGroup
      */
     protected const DIVISION_SCALE = 10;
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     public function getItemWithGroupKey(ItemTransfer $itemTransfer): string
     {
         if (!$itemTransfer->getAmountSalesUnit() || !$itemTransfer->getAmount()) {

@@ -25,10 +25,6 @@ class ProductPackagingUnitTypeTranslationWriter implements ProductPackagingUnitT
      */
     protected $glossaryFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToGlossaryFacadeInterface $glossaryFacade
-     */
     public function __construct(
         ProductPackagingUnitToLocaleFacadeInterface $localeFacade,
         ProductPackagingUnitToGlossaryFacadeInterface $glossaryFacade
@@ -37,11 +33,6 @@ class ProductPackagingUnitTypeTranslationWriter implements ProductPackagingUnitT
         $this->glossaryFacade = $glossaryFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return void
-     */
     public function saveTranslations(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): void
     {
         foreach ($productPackagingUnitTypeTransfer->getTranslations() as $productPackagingUnitTypeTranslationTransfer) {
@@ -51,12 +42,6 @@ class ProductPackagingUnitTypeTranslationWriter implements ProductPackagingUnitT
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTranslationTransfer $productPackagingUnitTypeTranslationTransfer
-     *
-     * @return void
-     */
     protected function saveNameTranslations(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer,
         ProductPackagingUnitTypeTranslationTransfer $productPackagingUnitTypeTranslationTransfer
@@ -71,11 +56,6 @@ class ProductPackagingUnitTypeTranslationWriter implements ProductPackagingUnitT
         $this->saveTranslation($key, $value, $productPackagingUnitTypeTranslationTransfer->getLocaleCode());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return bool
-     */
     public function deleteTranslations(ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer): bool
     {
         $productPackagingUnitTypeTransfer->requireName();

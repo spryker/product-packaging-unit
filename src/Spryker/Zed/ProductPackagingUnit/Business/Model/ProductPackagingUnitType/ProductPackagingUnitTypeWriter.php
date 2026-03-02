@@ -44,12 +44,6 @@ class ProductPackagingUnitTypeWriter implements ProductPackagingUnitTypeWriterIn
      */
     protected $productPackagingUnitTypeKeyGenerator;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitEntityManagerInterface $entityManager
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $repository
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeTranslationWriterInterface $translationWriter
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeKeyGeneratorInterface $productPackagingUnitTypeGroupKeyGenerator
-     */
     public function __construct(
         ProductPackagingUnitEntityManagerInterface $entityManager,
         ProductPackagingUnitRepositoryInterface $repository,
@@ -88,11 +82,6 @@ class ProductPackagingUnitTypeWriter implements ProductPackagingUnitTypeWriterIn
         ));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return bool
-     */
     protected function isUniqueForCreate(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
     ): bool {
@@ -123,11 +112,6 @@ class ProductPackagingUnitTypeWriter implements ProductPackagingUnitTypeWriterIn
         ));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return bool
-     */
     protected function isUniqueForUpdate(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
     ): bool {
@@ -137,11 +121,6 @@ class ProductPackagingUnitTypeWriter implements ProductPackagingUnitTypeWriterIn
             $productPackagingUnitTypeTransfer->getIdProductPackagingUnitType() === $existingProductPackagingUnitTypeTransfer->getIdProductPackagingUnitType();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return bool
-     */
     public function deleteProductPackagingUnitType(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
     ): bool {

@@ -40,12 +40,6 @@ class SplittableOrderItemTransformer implements SplittableOrderItemTransformerIn
         return $transformedItemsCollection;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\ItemCollectionTransfer $transformedItemsCollection
-     *
-     * @return void
-     */
     protected function transformItemTransferWithProductOptions(ItemTransfer $itemTransfer, ItemCollectionTransfer $transformedItemsCollection): void
     {
         $transformedItemTransfer = new ItemTransfer();
@@ -63,11 +57,6 @@ class SplittableOrderItemTransformer implements SplittableOrderItemTransformerIn
         $transformedItemsCollection->addItem($transformedItemTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductOptionTransfer $productOptionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductOptionTransfer
-     */
     protected function copyProductOptionTransfer(ProductOptionTransfer $productOptionTransfer): ProductOptionTransfer
     {
         $transformedProductOptionTransfer = new ProductOptionTransfer();

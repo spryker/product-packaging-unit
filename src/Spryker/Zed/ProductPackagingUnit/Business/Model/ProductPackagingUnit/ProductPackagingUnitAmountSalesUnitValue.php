@@ -18,11 +18,6 @@ class ProductPackagingUnitAmountSalesUnitValue implements ProductPackagingUnitAm
      */
     protected const DIVISION_SCALE = 10;
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function calculateAmountSalesUnitValueInQuote(QuoteTransfer $quoteTransfer): QuoteTransfer
     {
         foreach ($quoteTransfer->getItems() as $itemTransfer) {
@@ -38,11 +33,6 @@ class ProductPackagingUnitAmountSalesUnitValue implements ProductPackagingUnitAm
         return $quoteTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return int
-     */
     protected function calculateAmountSalesUnitValue(ItemTransfer $itemTransfer): int
     {
         $itemTransfer
@@ -62,13 +52,6 @@ class ProductPackagingUnitAmountSalesUnitValue implements ProductPackagingUnitAm
         );
     }
 
-    /**
-     * @param \Spryker\DecimalObject\Decimal $availabilityValue
-     * @param float $unitToAvailabilityConversion
-     * @param int $unitPrecision
-     *
-     * @return int
-     */
     protected function calculateValue(Decimal $availabilityValue, float $unitToAvailabilityConversion, int $unitPrecision): int
     {
         return $availabilityValue

@@ -34,9 +34,6 @@ class ExpandOrderWithAmountLeadProductTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandOrderWithAmountLeadProduct(): void
     {
         // Arrange

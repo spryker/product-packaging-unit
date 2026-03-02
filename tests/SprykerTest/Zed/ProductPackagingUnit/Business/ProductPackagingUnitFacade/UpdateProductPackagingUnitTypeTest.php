@@ -54,9 +54,6 @@ class UpdateProductPackagingUnitTypeTest extends Unit
         $this->assertSame($productPackagingUnitTypeTransfer->getName(), $newName);
     }
 
-    /**
-     * @return array
-     */
     protected function getProductPackagingUnitTypeDataForNameChange(): array
     {
         return [

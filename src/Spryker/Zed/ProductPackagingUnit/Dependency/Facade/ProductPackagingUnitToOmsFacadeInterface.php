@@ -20,10 +20,5 @@ interface ProductPackagingUnitToOmsFacadeInterface
      */
     public function updateReservationQuantity(string $sku): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return void
-     */
     public function updateReservation(ReservationRequestTransfer $reservationRequestTransfer): void;
 }

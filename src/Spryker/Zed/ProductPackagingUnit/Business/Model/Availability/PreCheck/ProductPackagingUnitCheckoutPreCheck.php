@@ -20,12 +20,6 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
      */
     public const CHECKOUT_PRODUCT_UNAVAILABLE_TRANSLATION_KEY = 'product.unavailable';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function checkoutAvailabilityPreCheck(
         QuoteTransfer $quoteTransfer,
         CheckoutResponseTransfer $checkoutResponseTransfer
@@ -96,12 +90,6 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\CheckoutErrorTransfer|null
-     */
     protected function checkPackagingUnitLeadProductAvailability(
         ItemTransfer $itemTransfer,
         QuoteTransfer $quoteTransfer
@@ -138,11 +126,6 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
         return $checkoutErrorMessages;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CheckoutErrorTransfer
-     */
     protected function createCheckoutResponseTransfer(string $message): CheckoutErrorTransfer
     {
         return (new CheckoutErrorTransfer())->setMessage($message);

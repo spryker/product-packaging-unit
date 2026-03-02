@@ -33,10 +33,6 @@ class ProductPackagingUnitTypeReader implements ProductPackagingUnitTypeReaderIn
      */
     protected $translationReader;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitRepositoryInterface $repository
-     * @param \Spryker\Zed\ProductPackagingUnit\Business\Model\ProductPackagingUnitType\ProductPackagingUnitTypeTranslationReaderInterface $translationReader
-     */
     public function __construct(
         ProductPackagingUnitRepositoryInterface $repository,
         ProductPackagingUnitTypeTranslationReaderInterface $translationReader
@@ -45,11 +41,6 @@ class ProductPackagingUnitTypeReader implements ProductPackagingUnitTypeReaderIn
         $this->translationReader = $translationReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer|null
-     */
     public function findProductPackagingUnitTypeByName(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
     ): ?ProductPackagingUnitTypeTransfer {
@@ -91,11 +82,6 @@ class ProductPackagingUnitTypeReader implements ProductPackagingUnitTypeReaderIn
         return $productPackagingUnitTypeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
-     *
-     * @return int
-     */
     public function countProductPackagingUnitsByTypeId(
         ProductPackagingUnitTypeTransfer $productPackagingUnitTypeTransfer
     ): int {

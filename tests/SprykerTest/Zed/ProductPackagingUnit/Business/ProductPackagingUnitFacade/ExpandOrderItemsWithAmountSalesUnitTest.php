@@ -41,9 +41,6 @@ class ExpandOrderItemsWithAmountSalesUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -55,9 +52,6 @@ class ExpandOrderItemsWithAmountSalesUnitTest extends Unit
         $this->tester->configureTestStateMachine([static::DEFAULT_OMS_PROCESS_NAME]);
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithAmountSalesUnitExpandOrderItemsWithAmountSalesUnit(): void
     {
         // Arrange
@@ -77,9 +71,6 @@ class ExpandOrderItemsWithAmountSalesUnitTest extends Unit
         $this->assertNotNull($itemTransfers[1]->getAmountSalesUnit());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithAmountSalesUnitWithoutSalesOrderItemId(): void
     {
         // Act
@@ -91,9 +82,6 @@ class ExpandOrderItemsWithAmountSalesUnitTest extends Unit
         $this->assertEmpty($itemTransfers[0]->getAmountSalesUnit());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandOrderItemsWithAmountSalesUnitWithFakeSalesOrderItemId(): void
     {
         // Act

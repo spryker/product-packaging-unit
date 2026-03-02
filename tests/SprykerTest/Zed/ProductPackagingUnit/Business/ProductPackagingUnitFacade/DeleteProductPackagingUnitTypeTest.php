@@ -59,9 +59,6 @@ class DeleteProductPackagingUnitTypeTest extends Unit
         $this->tester->getFacade()->getProductPackagingUnitTypeById($productPackagingUnitTypeTransfer);
     }
 
-    /**
-     * @return array
-     */
     protected function getProductPackagingUnitTypeData(): array
     {
         return [

@@ -46,9 +46,6 @@ class PriceChangeHelper extends Module
      */
     protected const PRICE_NET_MODE = 'NET_MODE';
 
-    /**
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function getCartChangeTransfer(): CartChangeTransfer
     {
         $cartChangeTransfer = (new CartChangeBuilder())->build()
@@ -58,9 +55,6 @@ class PriceChangeHelper extends Module
         return $cartChangeTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function getItemTransfer(): ItemTransfer
     {
         $itemTransfer = (new ItemBuilder())->build()
@@ -77,27 +71,18 @@ class PriceChangeHelper extends Module
         return $itemTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitAmountTransfer
-     */
     protected function getProductPackagingUnitAmountTransfer(): ProductPackagingUnitAmountTransfer
     {
         return (new ProductPackagingUnitAmountBuilder())->build()
             ->setIsAmountVariable(true);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer
-     */
     protected function getProductPackagingUnitTransfer(): ProductPackagingUnitTransfer
     {
         return (new ProductPackagingUnitBuilder())->build()
             ->setProductPackagingUnitAmount($this->getProductPackagingUnitAmountTransfer());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function getQuoteTransfer(): QuoteTransfer
     {
         $itemTransfer = (new QuoteBuilder())->build()

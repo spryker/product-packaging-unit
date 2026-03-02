@@ -56,9 +56,6 @@ class CheckCheckoutAmountAvailabilityTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testCheckoutAvailabilityPreCheck(): void
     {
         // Arrange
@@ -74,9 +71,6 @@ class CheckCheckoutAmountAvailabilityTest extends Unit
         $this->assertFalse($checkoutResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createTestQuoteTransfer(): QuoteTransfer
     {
         $storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => static::STORE_NAME_DE]);
@@ -85,9 +79,6 @@ class CheckCheckoutAmountAvailabilityTest extends Unit
             ->setStore($storeTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createTestPackagingUnitItemTransfer(): ItemTransfer
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();

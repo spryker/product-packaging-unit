@@ -25,10 +25,6 @@ class ProductPackagingUnitTypeInstaller implements ProductPackagingUnitTypeInsta
      */
     protected $config;
 
-    /**
-     * @param \Spryker\Zed\ProductPackagingUnit\Persistence\ProductPackagingUnitEntityManagerInterface $entityManager
-     * @param \Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitConfig $config
-     */
     public function __construct(
         ProductPackagingUnitEntityManagerInterface $entityManager,
         ProductPackagingUnitConfig $config
@@ -37,9 +33,6 @@ class ProductPackagingUnitTypeInstaller implements ProductPackagingUnitTypeInsta
         $this->config = $config;
     }
 
-    /**
-     * @return void
-     */
     public function install(): void
     {
         $this->getTransactionHandler()->handleTransaction(function () {
@@ -47,9 +40,6 @@ class ProductPackagingUnitTypeInstaller implements ProductPackagingUnitTypeInsta
         });
     }
 
-    /**
-     * @return void
-     */
     protected function executeInstallTransaction(): void
     {
         $productInfrastructuralPackagingUnitTypes = $this->config->getInfrastructuralPackagingUnitTypes();

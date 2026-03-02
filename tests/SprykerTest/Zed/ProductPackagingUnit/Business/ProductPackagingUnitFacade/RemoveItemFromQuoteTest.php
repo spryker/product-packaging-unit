@@ -29,9 +29,6 @@ class RemoveItemFromQuoteTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testAddAndRemoveItemsToAndFromQuote(): void
     {
         $itemSku = 'sku_1';

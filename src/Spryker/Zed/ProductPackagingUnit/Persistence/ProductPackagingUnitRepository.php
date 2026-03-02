@@ -37,11 +37,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
      */
     protected const COL_COUNT = 'count';
 
-    /**
-     * @param string $productPackagingUnitTypeName
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer|null
-     */
     public function findProductPackagingUnitTypeByName(
         string $productPackagingUnitTypeName
     ): ?ProductPackagingUnitTypeTransfer {
@@ -62,11 +57,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
             );
     }
 
-    /**
-     * @param int $idProductPackagingUnitType
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer|null
-     */
     public function findProductPackagingUnitTypeById(
         int $idProductPackagingUnitType
     ): ?ProductPackagingUnitTypeTransfer {
@@ -87,11 +77,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
             );
     }
 
-    /**
-     * @param int $idProductPackagingUnitType
-     *
-     * @return int
-     */
     public function countProductPackagingUnitsByTypeId(
         int $idProductPackagingUnitType
     ): int {
@@ -149,11 +134,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
         return $productIds->toArray();
     }
 
-    /**
-     * @param int $idProductPackagingUnit
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer|null
-     */
     public function findProductPackagingUnitById(
         int $idProductPackagingUnit
     ): ?ProductPackagingUnitTransfer {
@@ -176,11 +156,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
         return $productPackagingUnitTransfer;
     }
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductPackagingUnitTransfer|null
-     */
     public function findProductPackagingUnitByProductId(
         int $idProduct
     ): ?ProductPackagingUnitTransfer {
@@ -434,9 +409,6 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
         return $productPackagingUnitCounts;
     }
 
-    /**
-     * @return \Orm\Zed\ProductPackagingUnit\Persistence\SpyProductPackagingUnitQuery
-     */
     protected function getProductPackagingUnitCriteria(): SpyProductPackagingUnitQuery
     {
         return $this->getFactory()

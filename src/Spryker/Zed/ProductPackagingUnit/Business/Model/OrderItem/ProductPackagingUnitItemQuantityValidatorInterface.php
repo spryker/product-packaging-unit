@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 interface ProductPackagingUnitItemQuantityValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     public function isProductPackagingUnitItemQuantitySplittable(ItemTransfer $itemTransfer): bool;
 }

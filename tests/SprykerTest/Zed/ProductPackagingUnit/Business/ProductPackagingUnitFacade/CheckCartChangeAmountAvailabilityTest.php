@@ -56,9 +56,6 @@ class CheckCartChangeAmountAvailabilityTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testPreCheckCartAvailability(): void
     {
         // Arrange
@@ -73,9 +70,6 @@ class CheckCartChangeAmountAvailabilityTest extends Unit
         $this->assertFalse($cartPreCheckResponseTransfer->getIsSuccess());
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     protected function createTestQuoteTransfer(): QuoteTransfer
     {
         $storeTransfer = $this->tester->haveStore([StoreTransfer::NAME => static::STORE_NAME_DE]);
@@ -84,9 +78,6 @@ class CheckCartChangeAmountAvailabilityTest extends Unit
             ->setStore($storeTransfer);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function createTestPackagingUnitItemTransfer(): ItemTransfer
     {
         $itemProductConcreteTransfer = $this->tester->haveProduct();

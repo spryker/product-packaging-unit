@@ -42,9 +42,6 @@ class FilterProductsWithoutPackagingUnitTest extends Unit
      */
     protected ProductPackagingUnitBusinessTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFilterProductsWithoutPackagingUnitTestThrowsExceptionForMissingProperty(): void
     {
         // Arrange
@@ -57,9 +54,6 @@ class FilterProductsWithoutPackagingUnitTest extends Unit
         $this->tester->getFacade()->filterProductsWithoutPackagingUnit($productConcreteTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductsWithoutPackagingUnitTestExcludesProduct(): void
     {
         // Arrange
@@ -87,9 +81,6 @@ class FilterProductsWithoutPackagingUnitTest extends Unit
         $this->assertCount(1, $productConcreteTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testFilterProductsWithoutPackagingUnitTestReturnsUnmodifiedArray(): void
     {
         // Arrange
