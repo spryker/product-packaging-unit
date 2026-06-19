@@ -12,6 +12,8 @@ use Spryker\Zed\Kernel\AbstractBundleConfig;
 
 class ProductPackagingUnitConfig extends AbstractBundleConfig
 {
+    protected const string CHECKOUT_ERROR_TYPE = 'ProductPackagingUnitUnavailable';
+
     /**
      * Default packaging unit type name.
      *
@@ -29,6 +31,17 @@ class ProductPackagingUnitConfig extends AbstractBundleConfig
             'name' => 'packaging_unit_type.item.name',
         ],
     ];
+
+    /**
+     * Specification:
+     * - Returns the error type identifier used in CheckoutErrorTransfer for errors produced by this module.
+     *
+     * @api
+     */
+    public function getCheckoutErrorType(): string
+    {
+        return static::CHECKOUT_ERROR_TYPE;
+    }
 
     /**
      * @api

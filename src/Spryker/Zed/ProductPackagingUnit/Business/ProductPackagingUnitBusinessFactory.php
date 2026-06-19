@@ -165,6 +165,7 @@ class ProductPackagingUnitBusinessFactory extends AbstractBusinessFactory
     {
         return new ProductPackagingUnitCheckoutPreCheck(
             $this->getAvailabilityFacade(),
+            $this->getConfig(),
         );
     }
 

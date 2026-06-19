@@ -12,6 +12,8 @@ use Generated\Shared\Transfer\CheckoutErrorTransfer;
 use Generated\Shared\Transfer\CheckoutResponseTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
+use Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeInterface;
+use Spryker\Zed\ProductPackagingUnit\ProductPackagingUnitConfig;
 
 class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabilityPreCheck implements ProductPackagingUnitCheckoutPreCheckInterface
 {
@@ -19,6 +21,13 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
      * @var string
      */
     public const CHECKOUT_PRODUCT_UNAVAILABLE_TRANSLATION_KEY = 'product.unavailable';
+
+    public function __construct(
+        ProductPackagingUnitToAvailabilityFacadeInterface $availabilityFacade,
+        protected ProductPackagingUnitConfig $productPackagingUnitConfig,
+    ) {
+        parent::__construct($availabilityFacade);
+    }
 
     public function checkoutAvailabilityPreCheck(
         QuoteTransfer $quoteTransfer,
@@ -87,6 +96,7 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
 
         return $this->createCheckoutResponseTransfer(
             static::CHECKOUT_PRODUCT_UNAVAILABLE_TRANSLATION_KEY,
+            $itemTransfer,
         );
     }
 
@@ -106,6 +116,7 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
 
         return $this->createCheckoutResponseTransfer(
             static::CHECKOUT_PRODUCT_UNAVAILABLE_TRANSLATION_KEY,
+            $itemTransfer,
         );
     }
 
@@ -126,8 +137,11 @@ class ProductPackagingUnitCheckoutPreCheck extends ProductPackagingUnitAvailabil
         return $checkoutErrorMessages;
     }
 
-    protected function createCheckoutResponseTransfer(string $message): CheckoutErrorTransfer
+    protected function createCheckoutResponseTransfer(string $message, ItemTransfer $itemTransfer): CheckoutErrorTransfer
     {
-        return (new CheckoutErrorTransfer())->setMessage($message);
+        return (new CheckoutErrorTransfer())
+            ->setMessage($message)
+            ->setErrorType($this->productPackagingUnitConfig->getCheckoutErrorType())
+            ->setGroupKey($itemTransfer->getGroupKey());
     }
 }
