@@ -182,4 +182,10 @@
         <property name="salesOrderItemIds" type="array" singular="idSalesOrderItem"/>
     </transfer>
 
+    <transfer name="QueryCriteria">
+    </transfer>
+
+    <transfer name="WhereClause" strict="true">
+    </transfer>
+
 </transfers>

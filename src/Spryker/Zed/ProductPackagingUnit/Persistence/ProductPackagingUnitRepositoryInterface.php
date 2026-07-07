@@ -10,6 +10,8 @@ namespace Spryker\Zed\ProductPackagingUnit\Persistence;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductPackagingUnitTransfer;
 use Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer;
+use Generated\Shared\Transfer\QueryCriteriaTransfer;
+use Generated\Shared\Transfer\ReservationRequestTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
 
 interface ProductPackagingUnitRepositoryInterface
@@ -96,4 +98,9 @@ interface ProductPackagingUnitRepositoryInterface
      * @return array<int>
      */
     public function getProductPackagingUnitCountByProductConcreteIds(array $productConcreteIds): array;
+
+    public function expandOmsReservationAggregationQueryCriteria(
+        QueryCriteriaTransfer $queryCriteriaTransfer,
+        ReservationRequestTransfer $reservationRequestTransfer
+    ): QueryCriteriaTransfer;
 }

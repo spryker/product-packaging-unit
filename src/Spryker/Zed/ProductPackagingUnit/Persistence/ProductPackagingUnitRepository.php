@@ -10,9 +10,12 @@ namespace Spryker\Zed\ProductPackagingUnit\Persistence;
 use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductPackagingUnitTransfer;
 use Generated\Shared\Transfer\ProductPackagingUnitTypeTransfer;
+use Generated\Shared\Transfer\QueryCriteriaTransfer;
+use Generated\Shared\Transfer\ReservationRequestTransfer;
 use Generated\Shared\Transfer\SalesOrderItemStateAggregationTransfer;
 use Generated\Shared\Transfer\SpySalesOrderItemEntityTransfer;
 use Generated\Shared\Transfer\StoreTransfer;
+use Generated\Shared\Transfer\WhereClauseTransfer;
 use Orm\Zed\Oms\Persistence\Map\SpyOmsOrderItemStateTableMap;
 use Orm\Zed\Oms\Persistence\Map\SpyOmsOrderProcessTableMap;
 use Orm\Zed\Product\Persistence\Map\SpyProductTableMap;
@@ -407,6 +410,38 @@ class ProductPackagingUnitRepository extends AbstractRepository implements Produ
         }
 
         return $productPackagingUnitCounts;
+    }
+
+    public function expandOmsReservationAggregationQueryCriteria(
+        QueryCriteriaTransfer $queryCriteriaTransfer,
+        ReservationRequestTransfer $reservationRequestTransfer
+    ): QueryCriteriaTransfer {
+        $sku = $reservationRequestTransfer->getSkuOrFail();
+
+        $queryCriteriaTransfer->addGroupByColumn(SpySalesOrderItemTableMap::COL_AMOUNT_SKU);
+
+        $whereClauseTransfer = (new WhereClauseTransfer())
+            ->setClause(sprintf(
+                '%s = ? OR %s = ?',
+                SpySalesOrderItemTableMap::COL_SKU,
+                SpySalesOrderItemTableMap::COL_AMOUNT_SKU,
+            ))
+            ->setParameters([$sku, $sku]);
+        $queryCriteriaTransfer->addWhereClause($whereClauseTransfer);
+
+        $quotedSku = $this->getFactory()->getConnection()->quote($sku);
+
+        $withColumns = $queryCriteriaTransfer->getWithColumns();
+        $withColumns[SalesOrderItemStateAggregationTransfer::SUM_AMOUNT] = sprintf(
+            'CASE WHEN %s = %s THEN SUM(%s) ELSE SUM(%s) END',
+            SpySalesOrderItemTableMap::COL_AMOUNT_SKU,
+            $quotedSku,
+            SpySalesOrderItemTableMap::COL_AMOUNT,
+            SpySalesOrderItemTableMap::COL_QUANTITY,
+        );
+        $queryCriteriaTransfer->setWithColumns($withColumns);
+
+        return $queryCriteriaTransfer;
     }
 
     protected function getProductPackagingUnitCriteria(): SpyProductPackagingUnitQuery

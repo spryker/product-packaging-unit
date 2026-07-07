@@ -8,8 +8,10 @@
 namespace Spryker\Zed\ProductPackagingUnit;
 
 use Orm\Zed\Sales\Persistence\SpySalesOrderItemQuery;
+use Propel\Runtime\Propel;
 use Spryker\Zed\Kernel\AbstractBundleDependencyProvider;
 use Spryker\Zed\Kernel\Container;
+use Spryker\Zed\ProductPackagingUnit\Dependency\External\ProductPackagingUnitToConnectionAdapter;
 use Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToAvailabilityFacadeBridge;
 use Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToGlossaryFacadeBridge;
 use Spryker\Zed\ProductPackagingUnit\Dependency\Facade\ProductPackagingUnitToLocaleFacadeBridge;
@@ -76,6 +78,11 @@ class ProductPackagingUnitDependencyProvider extends AbstractBundleDependencyPro
     public const SERVICE_UTIL_TEXT = 'SERVICE_UTIL_TEXT';
 
     /**
+     * @var string
+     */
+    public const CONNECTION = 'CONNECTION';
+
+    /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
      * @return \Spryker\Zed\Kernel\Container
@@ -108,6 +115,7 @@ class ProductPackagingUnitDependencyProvider extends AbstractBundleDependencyPro
         $container = parent::providePersistenceLayerDependencies($container);
 
         $container = $this->addSalesOrderItemPropelQuery($container);
+        $container = $this->addConnection($container);
 
         return $container;
     }
@@ -213,6 +221,15 @@ class ProductPackagingUnitDependencyProvider extends AbstractBundleDependencyPro
     {
         $container->set(static::SERVICE_UTIL_TEXT, function (Container $container) {
             return new ProductPackagingUnitToUtilTextServiceBridge($container->getLocator()->utilText()->service());
+        });
+
+        return $container;
+    }
+
+    protected function addConnection(Container $container): Container
+    {
+        $container->set(static::CONNECTION, function () {
+            return new ProductPackagingUnitToConnectionAdapter(Propel::getConnection());
         });
 
         return $container;
