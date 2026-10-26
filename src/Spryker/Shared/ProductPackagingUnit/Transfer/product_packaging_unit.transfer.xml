@@ -117,6 +117,7 @@
     <transfer name="CheckoutError">
         <property name="message" type="string"/>
         <property name="errorType" type="string"/>
+        <property name="groupKey" type="string"/>
     </transfer>
 
     <transfer name="Store">
@@ -183,9 +184,14 @@
     </transfer>
 
     <transfer name="QueryCriteria">
+        <property name="groupByColumns" type="string[]" singular="groupByColumn"/>
+        <property name="whereClauses" type="WhereClause[]" singular="whereClause"/>
+        <property name="withColumns" type="array" singular="withColumn"/>
     </transfer>
 
     <transfer name="WhereClause" strict="true">
+        <property name="clause" type="string"/>
+        <property name="parameters" type="array" singular="parameter"/>
     </transfer>
 
 </transfers>
